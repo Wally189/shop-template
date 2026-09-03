@@ -1,27 +1,13 @@
-# Project Status
+# Project status
 
-## Classification
+**Repository role:** House of Carol Business Services contained preview.
 
-**Template**
+**State:** DEPLOYED-CANDIDATE BUILD / NOINDEX / NO ACQUISITION / NO COMMERCIAL RELEASE.
 
-## Current status
+**Protected-repository rule:** this repository is not one of the two protected exceptions (`alanwpgallagher`, Waylight Atlantic) and was repurposed under the proprietor-approved non-protected repository rebuild authority.
 
-Needs QA review. This repository should be treated as a reusable shop template, not a live business or portfolio project by default.
+**Current first-release candidate:** Tender Decision & Submission Review.
 
-## Public showcase status
+**Held:** Managed B2B Credit Control — in development / not currently offered.
 
-Do not pin by default.
-
-Keep public only if the template is clean, generic, safe and understandable.
-
-## Purpose
-
-To provide a reusable starting point for a simple shop or small retail website.
-
-## Do not include
-
-Do not include secrets, credentials, private personal material, third-party personal data, or confidential business/customer information.
-
-## Current governance action
-
-Check whether this template is still useful. If useful, keep public and tidy; if not, consider making private or archiving manually in GitHub settings.
+**Open before commercial release:** exact proprietor-approved price or pricing method, active business contact/enquiry route, final customer terms/privacy for actual processing, payment route, rendered/device QA, and triggered specialist clearance.
