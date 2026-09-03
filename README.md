@@ -1,27 +1,17 @@
-# Shop Template
+# House of Carol — Business Services
 
-Reusable shop website template repository.
+Contained, no-index customer-experience preview for the House of Carol specialist business-services surface.
 
-This is a management wrapper only. It records the purpose and status of the repository without changing any published website content, appearance or behaviour.
+## Current state
 
-## Status
+- House of Carol corporate site remains separate.
+- Tender Decision & Submission Review is the first-release candidate.
+- Managed B2B Credit Control is in development and not currently offered.
+- No active enquiry route.
+- No public price.
+- `noindex,nofollow` containment applies.
+- This repository is an implementation surface; controlled Google Drive records remain authoritative for House-specific business state.
 
-- **Classification:** Template
-- **Current status:** Needs QA review
-- **Public showcase status:** Keep public only if clean and understandable; do not pin by default
+## Release distinction
 
-## Intended use
-
-This repository should act as a reusable starting point for a simple shop or small retail website.
-
-## What this demonstrates
-
-Potentially demonstrates reusable website structure, product/service presentation, simple public information layout and low-maintenance static-site thinking.
-
-## Maintenance notes
-
-Before promotion, check that the template is safe, generic, documented and not confused with a live business site.
-
-## Safety notes
-
-Do not include secrets, credentials, private personal material, third-party personal data, or confidential business/customer information.
+Deployment of this preview is not commercial release. Search indexing, acquisition activation, customer invitation and live selling remain separately controlled.
