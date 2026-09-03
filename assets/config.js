@@ -1,1 +1,1 @@
-window.HOC_CONFIG=Object.freeze({preview:true,salesOpen:false,businessEmail:"",legalAddress:"",displayLocation:"Bristol, United Kingdom",price:"",currency:"GBP",mailboxProvider:"",domain:"",lastUpdated:"3 September 2026"});
+window.HOC_CONFIG={businessEmail:'',legalAddress:'',displayLocation:'Bristol, United Kingdom',price:'',salesOpen:false};
