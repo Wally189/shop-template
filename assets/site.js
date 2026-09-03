@@ -1,6 +1,7 @@
 (function(){
   const c=window.HOC_CONFIG||{};
   const q=(s,r=document)=>r.querySelector(s),qa=(s,r=document)=>Array.from(r.querySelectorAll(s));
+  qa('.brand').forEach(brand=>{if(!brand.querySelector('.brand-mark')){const img=document.createElement('img');img.className='brand-mark';img.src='assets/carol-guilloche.svg';img.alt='';img.setAttribute('aria-hidden','true');brand.prepend(img)}});
   const toggle=q('.nav-toggle'),nav=q('.primary');
   if(toggle&&nav){toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open))})}
 
