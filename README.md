@@ -1,16 +1,17 @@
-# House of Carol — Business Services
+# House of Carol — Products & Services
 
-Contained, no-index customer-experience preview for the House of Carol specialist business-services surface.
+Contained, no-index customer-experience preview for House of Carol's customer-facing products and services shopfront.
 
 ## Current state
 
-- House of Carol corporate site remains separate.
-- Tender Decision & Submission Review is the first-release candidate.
-- Managed B2B Credit Control is in development and not currently offered.
-- No active enquiry route.
+- The House of Carol corporate/holding site remains separate.
+- Tender Review is the only current customer-facing service on this preview.
+- Future/held service concepts are omitted until commissioned and authorised for customer presentation.
+- No active commercial enquiry route.
 - No public price.
 - `noindex,nofollow` containment applies.
-- This repository is an implementation surface; controlled Google Drive records remain authoritative for House-specific business state.
+- The dedicated House mailbox and production-domain details remain unverified/unconfigured.
+- Google Drive controlled records remain authoritative for House-specific governance and commercial state; this repository is the implementation surface.
 
 ## Release distinction
 
