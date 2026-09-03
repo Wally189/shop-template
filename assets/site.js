@@ -1,20 +1,27 @@
-(function(){
-  const c=window.HOC_CONFIG||{};
-  const q=(s,r=document)=>r.querySelector(s),qa=(s,r=document)=>Array.from(r.querySelectorAll(s));
-  qa('.brand').forEach(brand=>{if(!brand.querySelector('.brand-mark')){const img=document.createElement('img');img.className='brand-mark';img.src='assets/carol-guilloche.svg';img.alt='';img.setAttribute('aria-hidden','true');brand.prepend(img)}});
-  const toggle=q('.nav-toggle'),nav=q('.primary');
-  if(toggle&&nav){toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open))})}
-
-  qa('[data-business-email]').forEach(el=>{const label=q('[data-contact-email-label]');if(c.businessEmail){const a=document.createElement('a');a.href='mailto:'+c.businessEmail;a.textContent=c.businessEmail;el.replaceChildren(a);el.hidden=false;if(label)label.hidden=false}else{el.hidden=true;if(label)label.hidden=true}});
-  qa('[data-legal-address]').forEach(el=>{const label=q('[data-contact-address-label]');if(c.legalAddress){el.textContent=c.legalAddress;el.hidden=false;if(label)label.hidden=false}else{el.hidden=true;if(label)label.hidden=true}});
-  qa('[data-display-location]').forEach(el=>el.textContent=c.displayLocation||'Bristol, United Kingdom');
-  qa('[data-price]').forEach(el=>el.textContent=c.price||'Confirmed after fit and scope are agreed');
-
-  const fit=q('#fit-checker');
-  if(fit)fit.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(fit),keys=['complete','deadline','evidence','decision'],out=q('#fit-result');if(!keys.every(k=>d.get(k))){out.hidden=false;out.innerHTML='<strong>One or more answers are missing.</strong><p>Complete all four questions so the result is useful.</p>';out.focus();return}const yes=keys.filter(k=>d.get(k)==='yes').length;if(yes===4){out.innerHTML='<strong>This looks like the kind of final-stage tender the service is designed for.</strong><p>The next sensible step is to prepare a short enquiry so fit, scope and timing can be confirmed before any confidential documents are shared.</p><p><a href="contact.html">Prepare an enquiry brief</a></p>'}else if(d.get('deadline')==='no'||d.get('evidence')==='no'){out.innerHTML='<strong>Probably not ready for this review yet.</strong><p>The service needs enough time for the review and your own corrections, plus the material needed to test important claims. Resolve those points first rather than force the wrong engagement.</p>'}else if(d.get('complete')==='no'){out.innerHTML='<strong>The draft may be too early for a final review.</strong><p>Finish the substantive drafting first. Tender Review is most useful when the submission is substantially complete and a fresh challenge can concentrate on gaps, evidence and priorities.</p>'}else{out.innerHTML='<strong>Potentially suitable, but one point needs clarifying.</strong><p>Prepare a short enquiry and describe the uncertainty. Fit should be established before any work is accepted.</p><p><a href="contact.html">Prepare an enquiry brief</a></p>'}out.hidden=false;out.focus()});
-
-  const form=q('#enquiry-builder');
-  if(form){const out=q('#enquiry-output'),copy=q('#copy-brief'),email=q('#email-brief');form.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(form),text=['Tender Review enquiry','','Organisation: '+(d.get('organisation')||'[not provided]'),'Contact: '+(d.get('name')||'[not provided]'),'Tender / reference: '+(d.get('reference')||'[not provided]'),'Submission deadline: '+(d.get('deadline')||'[not provided]'),'Approximate submission size: '+(d.get('length')||'[not provided]'),'Draft status: '+(d.get('status')||'[not provided]'),'','What I would most value challenged:',d.get('concern')||'[not provided]','','I have not included confidential tender content or credentials in this first message.'].join('\n');out.textContent=text;out.dataset.brief=text;out.hidden=false;out.focus();copy.hidden=false;if(c.businessEmail){email.hidden=false;email.href='mailto:'+encodeURIComponent(c.businessEmail)+'?subject='+encodeURIComponent('Tender Review enquiry')+'&body='+encodeURIComponent(text)}else email.hidden=true});copy.addEventListener('click',async()=>{const text=out.dataset.brief||'';try{await navigator.clipboard.writeText(text);const old=copy.textContent;copy.textContent='Copied';setTimeout(()=>copy.textContent=old,1600)}catch(_){const r=document.createRange(),s=window.getSelection();r.selectNodeContents(out);s.removeAllRanges();s.addRange(r)}})}
-
-  const p=q('#release-preflight');if(p){const ready=!!c.businessEmail&&!!c.legalAddress&&!!c.salesOpen;p.textContent=ready?'Contact route configured':''}
+(() => {
+  const button = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('primary-nav');
+  if (button && nav) {
+    const close = () => {
+      button.setAttribute('aria-expanded', 'false');
+      nav.dataset.open = 'false';
+    };
+    button.addEventListener('click', () => {
+      const open = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!open));
+      nav.dataset.open = String(!open);
+    });
+    nav.addEventListener('click', (event) => {
+      if (event.target.closest('a')) close();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        close();
+        button.focus();
+      }
+    });
+    const mq = window.matchMedia('(min-width: 851px)');
+    const sync = () => { if (mq.matches) close(); };
+    mq.addEventListener?.('change', sync);
+  }
 })();
